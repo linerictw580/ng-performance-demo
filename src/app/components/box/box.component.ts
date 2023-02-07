@@ -1,16 +1,23 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { IBox } from 'src/app/model/box.model';
 
 @Component({
   selector: '[box]',
   templateUrl: './box.component.html',
   styleUrls: ['./box.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BoxComponent implements OnInit {
+export class BoxComponent /*implements DoCheck*/ {
   @Input() box: IBox;
   @Input() selected: boolean;
 
-  constructor() {}
+  // ngDoCheck(): void {
+  //   console.log('ngDoCheck');
+  // }
 
-  ngOnInit(): void {}
+  rerender() {
+    // setTimeout(() => {
+    console.log('rerender');
+    // }, 0);
+  }
 }

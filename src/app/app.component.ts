@@ -44,8 +44,11 @@ export class AppComponent implements OnInit {
   }
 
   private _updateBox(id: number, x: number, y: number) {
-    const box = this.boxes[id];
-    box.x = x;
-    box.y = y;
+    // const box = this.boxes[id];
+    // box.x = x;
+    // box.y = y;
+
+    // Create new reference instead of mutation for OnPush change detection
+    this.boxes[id] = { id, x, y };
   }
 }
