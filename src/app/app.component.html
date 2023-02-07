@@ -4,10 +4,5 @@
   (mousemove)="onMouseMove($event)"
   (mouseup)="onMouseUp($event)"
 >
-  <svg:g
-    box
-    *ngFor="let box of boxes; let i = index"
-    [box]="box"
-    [selected]="currentId === i"
-  ></svg:g>
+  <svg:g box *ngFor="let box of boxes" [box]="box" [selected]="currentId === box.id"></svg:g>
 </svg>
